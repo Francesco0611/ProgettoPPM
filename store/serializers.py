@@ -31,8 +31,8 @@ class CartItemSerializer(serializers.ModelSerializer):
         fields = ('id', 'product', 'product_detail', 'quantity', 'total_price')
 
     def validate(self, attrs):
-        product = attrs.get('product')
-        quantity = attrs.get('quantity', 1)
+        product = attrs.get('product') or (self.instance.product if self.instance else None)
+        quantity = attrs.get('quantity', self.instance.quantity if self.instance else 1)
 
         if not product.is_active:
             raise serializers.ValidationError({"product": "This product is no longer active."})
