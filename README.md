@@ -6,8 +6,11 @@
 * **Chosen Project Type:** REST API
 * **Framework Used:** Django & Django REST Framework (DRF)
 * **Database:** SQLite (pre-populated)
+* **Live Deployment:** https://progettoppm-wfdb.onrender.com
 
 This application is a RESTful API for an E-commerce platform that implements complete user authentication, role-based access control (RBAC), cart management, stock tracking, and transactional order checkout with stock adjustment logic.
+
+*Note: The deployment runs on Render's free tier, so the instance may spin down after periods of inactivity. The first request after idling can take up to ~50 seconds to respond while it wakes up.*
 
 ---
 
@@ -153,6 +156,8 @@ We have included a complete automated API verification script `test_api.py`. It 
 HTTPie is a command-line HTTP client. Download it at [httpie.io](https://httpie.io/).
 
 Here is a complete testing workflow representing the main actions on both roles.
+
+**Base URL:** All commands below use the local server (`http://127.0.0.1:8000`). To run the same workflow against the deployed instance, simply replace it with `https://progettoppm-wfdb.onrender.com`.
 
 ### 1. Authenticating & Token Retrieval
 To log in as a Customer and save the access token:
